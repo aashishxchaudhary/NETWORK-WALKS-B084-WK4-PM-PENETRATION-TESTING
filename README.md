@@ -108,6 +108,16 @@ These findings demonstrate the importance of secure authentication, appropriate 
 - Database backup exposure assessment.
 - Security impact evaluation.
 
+#### Reconnaissance Evidence
+
+![Mediroza General Hospital Home Page](Screenshots/01-HomePage.png)
+
+![Patient Portal Login Page](Screenshots/02-LoginPage.png)
+
+![Login Page HTML Source](Screenshots/03-PageSource.png)
+
+![Authenticated Patient Portal URL](Screenshots/07-URL.png)
+
 ## 6. Technical Findings
 
 ### VULN-01 — SQL Injection Authentication Bypass
@@ -142,11 +152,13 @@ The application subsequently granted access to the patient portal without a vali
 
 #### Evidence
 
-![Login Interface](screenshots/M1-Reconnaissance/Login-Page.png)
+![Patient Portal Login Interface](Screenshots/02-LoginPage.png)
 
-![SQL Injection Error](screenshots/M1-SQL-Injection/SQL-Error.png)
+![SQL Injection Database Error](Screenshots/04-SQLi-Error.png)
 
-![Authentication Bypass](screenshots/M1-SQL-Injection/Login-Success.png)
+![Second Authentication Attempt](Screenshots/05-SecondAttempt.png)
+
+![Authentication Bypass — Login Successful](Screenshots/06-LoginSuccess.png)
 
 #### Security Impact
 
@@ -238,13 +250,19 @@ with open(wordlist, "r", encoding="latin-1") as f:
 
 #### Evidence
 
-![PDF Hash Extraction](screenshots/M2-PDF-Analysis/Hash-Extraction.png)
+![PDF Password Hash Extraction](Screenshots/08-Hashes.png)
 
-![John the Ripper Result](screenshots/M2-PDF-Analysis/John-Result.png)
+![John the Ripper Hash Loading Failure](Screenshots/09-JohnFailed.png)
 
-![Python PDF Password Audit](screenshots/M2-PDF-Analysis/Python-Audit.png)
+![Python Password Crack — PDF 1](Screenshots/10-PythonCrack-PDF1.png)
 
-![PDF Document Analysis](screenshots/M2-PDF-Analysis/PDF-Analysis.png)
+![Python Password Crack — PDF 2 and PDF 3](Screenshots/11-PythonCrack-PDF2&3.png)
+
+![Unlocked PDF 1 Content](Screenshots/12-PDF1-Content.png)
+
+![Unlocked PDF 2 Content](Screenshots/13-PDF2-Content.png)
+
+![Unlocked PDF 3 Content](Screenshots/14-PDF3-Content.png)
 
 #### Security Impact
 
@@ -307,11 +325,13 @@ mediroza_db_backup_2019.sql
 
 #### Evidence
 
-![PDF Metadata](screenshots/M3-Data-Exposure/PDF-Metadata.png)
+![PDF 3 Metadata — Legacy Backup Reference](Screenshots/15-Metadata-PDF3.png)
 
-![Exposed Directory](screenshots/M3-Data-Exposure/Directory-Listing.png)
+![Publicly Accessible /old/ Directory](Screenshots/16-OldFolder.png)
 
-![Database Backup](screenshots/M3-Data-Exposure/Database-Backup.png)
+![Exposed Database Backup — Staff and Salary Records](Screenshots/17-SQLBackup-Salaries.png)
+
+![Exposed Database Backup — Shareholder Records](Screenshots/18-Shareholders.png)
 
 #### Data Exposure Assessment
 
